@@ -1,0 +1,98 @@
+.main{
+    
+    display:flex;
+    margin-top:5%; 
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.divider{
+    width:1px;
+    background-color: lightblue;
+    box-shadow:5px 5px 30px 0px black;
+    border:1px solid lightblue;
+    
+
+}
+
+.registration-container {
+    min-width: 200%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 10px 10px 0px gray;
+    overflow: hidden;
+    border:1px solid gray;
+  }
+
+  .box{
+    display: flex;
+    justify-content: center;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ddd;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+.reg-message{
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    border-radius: 10px;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+  .success-message{
+    color:#28a745;
+  }
+
+  .error-message{
+    color:red;
+    height:30px;
+  }
+
+@media screen and (max-width: 800px){
+    .box{
+        width: 30%;
+        margin-top:5%;
+        }
+}
+
+
+    
+
+  

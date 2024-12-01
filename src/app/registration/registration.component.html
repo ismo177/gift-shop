@@ -1,0 +1,73 @@
+<div class="main">
+    <div class="box">
+      <div class="divider"></div>
+    </div>
+  
+    <div class="box">
+      <div class="registration-container">
+        <h2>Register</h2>
+  
+        <!-- Registration form -->
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+          
+          <!-- Username Field -->
+          <div>
+            <label for="username">Username</label>
+            <input class="form-control" id="username" type="text" formControlName="username" />
+            <div *ngIf="username?.invalid && username?.touched" class="error">
+              Username is required (min. 3 characters).
+            </div>
+          </div>
+          
+          <!-- Email Field -->
+          <div>
+            <label for="email">Email</label>
+            <input class="form-control" id="email" type="email" formControlName="email" />
+            <div *ngIf="email?.invalid && email?.touched" class="error">
+              Enter a valid email.
+            </div>
+          </div>
+          
+          <!-- Password Field -->
+          <div>
+            <label for="password">Password</label>
+            <input class="form-control" id="password" type="password" formControlName="password" />
+            <div *ngIf="password?.invalid && password?.touched" class="error">
+              Password is required (min. 6 characters).
+            </div>
+          </div>
+          
+          <!-- Confirm Password Field -->
+          <div>
+            <label for="confirmPassword">Confirm Password</label>
+            <input class="form-control" id="confirmPassword" type="password" formControlName="confirmPassword" />
+            <div *ngIf="confirmPassword?.invalid && confirmPassword?.touched" class="error">
+              Confirm your password.
+            </div>
+            <div *ngIf="registrationForm.hasError('passwordsNotMatching')" class="error">
+              Passwords do not match.
+            </div>
+          </div>
+  
+          <!-- Submit Button -->
+          <button class="btn btn-success" type="submit" [disabled]="registrationForm.invalid">Register</button>
+        </form>
+  
+        <!-- Success(use if showing message in registration page), and Error Message Section -->
+        <div class="reg-message">
+          <div *ngIf="successMessage" class="success-message">
+            {{ successMessage }}
+          </div>
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  
+    <div class="box">
+      <div class="divider"></div>
+    </div>
+  </div>
+  

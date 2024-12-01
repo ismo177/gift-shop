@@ -1,0 +1,48 @@
+<div class="main">
+        <div class="inputs">
+            <input type="text" [(ngModel)]="searchQuery" placeholder="Search products" (input)="searchProducts()"/>
+            <br>
+            <br>
+            <select [(ngModel)]="sortCriteria" class="p-2 border rounded ml-2" (change)="sortProducts()">
+                <option value="name">Sort by Name</option>
+                <option value="priceAsc">Sort by Price: Low to High</option>
+                <option value="priceDesc">Sort by Price: High to Low</option>
+            </select>
+        </div>
+
+        <div class="divider"></div>
+    
+    <div class="container">
+        <ng-container *ngIf="filteredProducts.length > 0; else noProducts">
+            <div class="card" *ngFor="let product of filteredProducts">
+
+                <div class="imgBx">
+                    <!--img [src]="product.imageUrl" alt=""/-->
+                    <a [routerLink]="['/product', product.id]" >View Details<img [src]="product.imageUrl" alt=""/>></a>
+                </div>
+
+                <div class="content">
+                    <div class="productName">{{ product.name }}</div>
+                    <div class="price-rating">
+                        <h2>${{ product.price }}</h2>
+                        <div class="rating">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa grey fa-star" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+    </div>
+</div>
+
+<ng-template #noProducts>
+    <div>
+       <h2>No Content !!</h2>
+    </div>
+</ng-template>
+

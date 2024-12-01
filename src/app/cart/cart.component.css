@@ -1,0 +1,65 @@
+
+.cart_container {
+    display: flex;
+    /*width:90%;*/
+    justify-content: center;
+    align-items: center;
+    margin-left:1%;
+    
+}
+
+table,
+th,
+td {
+    border: 1px dashed rgb(167, 167, 167);
+    border-collapse: collapse;
+    align-items: center;
+    text-align: center;
+
+}
+
+th {
+    color: white;
+    background-color: rgb(4, 4, 122);
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+}
+
+.total{
+    display: block;
+    border:1px solid gray;
+    border-radius: 5px;
+    margin-left:1%;
+    margin-bottom: auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    
+}
+
+
+.total .cost{
+    display:flex; 
+    width:300px;
+    border:1px solid blue;
+    justify-content: center;
+    align-items: center;
+}
+
+.total button{
+    justify-content:flex-end;
+    margin-left:30%;
+    
+}
+
+.total .cost h4{
+    color:red;
+    font-size: x-large;
+}
+
+
+
+

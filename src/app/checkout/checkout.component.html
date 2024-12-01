@@ -1,0 +1,91 @@
+<!-- src/app/checkout/checkout.component.html -->
+
+<header>
+    <h3>Checkout</h3>
+</header>
+<main>
+    <div class="div-left">
+        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit($event)">
+            <div class="form-group">
+                <label for="checkout-email">E-mail</label>
+                <input class="form-control input "id="email" id="checkout-email" formControlName="email" type="email" />
+        <small *ngIf="checkoutForm.get('email')?.invalid &&(checkoutForm.get('email')?.dirty ||checkoutForm.get('email')?.touched)">
+                    <span *ngIf="checkoutForm.get('email')?.errors?.['required']" class="red-text">Email is required.</span>
+                    <span *ngIf="checkoutForm.get('email')?.errors?.['email']">Enter a valid email.</span>
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input class="form-control" id="phone" formControlName="phone" type="text" />
+            <small *ngIf="checkoutForm.get('phone')?.invalid &&(checkoutForm.get('phone')?.dirty ||checkoutForm.get('phone')?.touched)">
+                    <span *ngIf="checkoutForm.get('phone')?.errors?.['required']" class="red-text">Phone number is required.</span>
+                    <span *ngIf="checkoutForm.get('phone')?.errors?.['pattern']">Enter a valid phone number.</span>
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control" id="name" formControlName="name" type="text" />
+            <small *ngIf="checkoutForm.get('name')?.invalid &&(checkoutForm.get('name')?.dirty ||checkoutForm.get('name')?.touched)">
+                    <span *ngIf="checkoutForm.get('name')?.errors?.['required']" class="red-text">Full name is required.</span>
+                </small>
+            </div>
+
+            <div class="div-address">
+                <label for="address">Address</label>
+                <input class="form-control" id="address" formControlName="address" type="text" />
+            <small *ngIf="checkoutForm.get('address')?.invalid &&(checkoutForm.get('address')?.dirty ||checkoutForm.get('address')?.touched)">
+                    <span *ngIf="checkoutForm.get('address')?.errors?.['required']" class="red-text">Address is required.</span>
+                </small>
+            </div>
+
+            <div class="div-city">
+                <label for="city">City</label>
+                <input class="form-control" id="city" formControlName="city" type="text" />
+                <small *ngIf=" checkoutForm.get('city')?.invalid && (checkoutForm.get('city')?.dirty ||checkoutForm.get('city')?.touched)">
+                    <span *ngIf="checkoutForm.get('city')?.errors?.['required']" class="red-text">City is required.</span>
+                </small>
+            </div>
+            <div>
+                <br>
+                <button  type="submit" class="btn btn-primary" (click)="checkout()" >Checkout</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="divider"></div>
+
+
+    <div class="div-right" *ngIf="cartItems.length > 0; else emptyCart">
+        <div class="checkout-details-inner">
+            <div class="checkout-lists" *ngFor="let item of cartItems">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ item.product.imageUrl }}" alt="" />
+                    </div>
+                    <div class="card-details">
+                        <div class="card-name">{{ item.product.name }}</div>
+                        <div class="card-price">${{ item.product.price }}</div>
+                        <div class="card-wheel">
+                            <button type="button" class="btn btn-info"(click)="decreaseQuantity($event, item.product.id)">-</button>
+                            <p>{{ item.quantity }}</p>
+                            <button type="button" class="btn btn-info"(click)="increaseQuantity($event, item.product.id)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-total" >
+                <h3>Total</h3>
+                <h2>{{ totalCost() | currency }}</h2>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<ng-template #emptyCart>
+    <p>Your cart is empty.</p>
+</ng-template>
+

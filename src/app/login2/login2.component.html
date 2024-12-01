@@ -1,0 +1,66 @@
+
+<div class="main">
+    <div class="box">
+      <div class="divider"></div>
+    </div>
+  
+    <div class="box">
+      <div class="login-container">
+        <h2>Login</h2>
+  
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div>
+            <label for="username">Username</label>
+            <input
+              class="form-control"
+              id="username"
+              type="text"
+              formControlName="username"
+            />
+            <div *ngIf="username?.invalid && username?.touched" class="error">
+              Username is required (min. 3 characters).
+            </div>
+          </div>
+  
+          <div>
+            <label for="password">Password</label>
+            <input
+              class="form-control"
+              id="password"
+              type="password"
+              formControlName="password"
+            />
+            <div *ngIf="password?.invalid && password?.touched" class="error">
+              Password is required (min. 6 characters).
+            </div>
+          </div>
+  
+          <br />
+  
+          <!-- Submit Button -->
+          <button
+            class="btn btn-success"
+            type="submit"
+            [disabled]="loginForm.invalid || isSubmitting"
+          >
+            {{ isSubmitting ? 'Logging in...' : 'Login' }}
+          </button>
+        </form>
+  
+        <!-- Success/Error Message -->
+        <div class="reg-message">
+          <div *ngIf="successMessage" class="success-message">
+            {{ successMessage }}
+          </div>
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="box">
+      <div class="divider"></div>
+    </div>
+  </div>
+  

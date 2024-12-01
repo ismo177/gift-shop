@@ -1,0 +1,98 @@
+/* src/app/navbar/navbar.component.css*/ 
+
+.nav {
+    /*background: black;*/
+   /* position: relative;*/
+    z-index: 20;
+    width: -webkit-fill-available;
+    padding: 20px;
+    display: flex;
+    justify-content:center;
+    color: white;
+    align-items: baseline;
+    vertical-align: center;
+    height: 10%;
+   /* border-radius: 20px 20px 2px 2px ;  */
+    border:1px solid lightblue;
+    font-size: x-large;
+}
+
+@media screen and (max-width: 600px) {
+    .nav a{
+        min-width: min-content;
+        font-size: small; 
+    }
+}   
+
+@media screen and (max-width: 1000px) {
+    .nav a{
+        min-width: min-content;
+        font-size: medium;
+    }
+}   
+
+
+.nav a{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top:20px;
+    transition: transform 0.4s ease, 
+        border-left 0.4s ease, 
+        box-shadow 0.4s ease, background-color 0.4s, 
+        border-radius 0.4s; 
+        
+}
+
+.nav a span{
+    color:black;
+}
+    
+
+
+.nav a:hover{
+    transform:scale(1.1);
+    border-left:1px solid lightblue;
+    border-right:1px solid lightblue;
+    background-color: lightblue;
+    border-radius: 1rem;
+    
+}
+
+/*
+a:active{
+    color:red;
+    text-decoration: underline;
+}
+    */
+
+/*
+nav a {
+    color: white;
+    margin-right: 10px;
+    margin-top:1rem;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    cursor:pointer;
+}
+*/
+a.disabled {
+    color: grey;          /* Change color to grey when disabled */
+    pointer-events: none; /* Disable clicks */
+    text-decoration: none; /* Optionally remove underline */
+  }
+
+.nav-reg {
+    color:green;
+    border-left:1px solid lightblue;
+    transition: border-left 0.5s ease, border-right 0.5s ease;
+  }
+
+.nav.nav-link.nav-reg:hover{
+    border-left:1px solid lightblue;
+    border-right: 1px solid lightblue;
+  }
